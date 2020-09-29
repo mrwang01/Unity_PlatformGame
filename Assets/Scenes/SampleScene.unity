@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 17362068}
   - component: {fileID: 17362072}
   - component: {fileID: 17362071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1577,9 +1577,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1033555421}
+  coll: {fileID: 1033555420}
   anim: {fileID: 1033555425}
   speed: 355
   jumpforce: 500
+  Ground:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &1033555425
 Animator:
   serializedVersion: 3
