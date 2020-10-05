@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb;
+   
+    [SerializeField]private Rigidbody2D rb;
+    private Animator anim;
     public Collider2D coll;
 
-    public Animator anim;
     public float speed;
 
     public float jumpforce;
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
     }
     void FixedUpdate()
@@ -53,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     void SwitchAnimate()
     {
-        anim.SetBool("idle",false);
+        anim.SetBool("idle", false);
         if (anim.GetBool("jumping"))
         {
             if (rb.velocity.y < 0)
