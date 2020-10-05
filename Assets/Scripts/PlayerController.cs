@@ -76,4 +76,14 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+
+
+    void OnTriggerEnter(Collider2D other) {
+        
+    }
+    void OnTriggerExit2D(Collider2D other) {
+        
+    }
+
 }
