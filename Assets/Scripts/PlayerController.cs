@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-   
-    [SerializeField]private Rigidbody2D rb;
+
+    [SerializeField] private Rigidbody2D rb;
     private Animator anim;
     public Collider2D coll;
 
@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float jumpforce;
 
     public LayerMask Ground;
+    public int cherry;
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //角色跳躍
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && coll.IsTouchingLayers("Ground"))
 
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce * Time.deltaTime);
@@ -79,11 +80,17 @@ public class PlayerController : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider2D other) {
-        
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Collection")
+        {
+            cherry += 1;
+            Debug.Log(cherry);
+
+            Destroy(other.gameObject);
+
+        }
     }
-    void OnTriggerExit2D(Collider2D other) {
-        
-    }
+
 
 }
